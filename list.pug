@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    .row
+        .col-sm-8
+            h1=title
+        .col-sm-4
+            a(href="/api/final/add", class="btn btn-success float-right") Add New Match
+    table.table
+        thead
+            tr
+                th Team A
+                th 
+                th Team B
+                th City
+                th Date
+        tbody
+            each match in matches
+                tr
+                    td=match.teama
+                    td <span><h6>VS</h6></span>
+                    td=match.teamb
+                    td=match.city
+                    td=match.date

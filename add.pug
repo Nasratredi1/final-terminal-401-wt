@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+    h1 Add New Match
+    form(action="/api/final/add",method="post")
+        .form-group
+            label(for="teama",onselect = "teamaa()") Team A
+            select(name="teama").form-control
+                option(value="") -- Select Team A --
+                option(value="Karachi Kings") Karachi Kings
+                option(value="Multan Sultan") Multan Sultan
+                option(value="Peshawer Zalmi") Peshawer Zalmi
+                option(value="Lahore Qalanders") Lahore Qalanders
+                option(value="Islamabad United") Islamabad United
+                option(value="Quetta Gladiators") Quetta Gladiators
+        .form-group
+            label(for="teamb") Team B
+            select(name="teamb",onselect = "teambb()").form-control
+                option(value="") -- Select Team B --
+                option(value="Karachi Kings") Karachi Kings
+                option(value="Multan Sultan") Multan Sultan
+                option(value="Peshawer Zalmi") Peshawer Zalmi
+                option(value="Lahore Qalanders") Lahore Qalanders
+                option(value="Islamabad United") Islamabad United
+                option(value="Quetta Gladiators") Quetta Gladiators
+        .form-group
+            label(for="city") City
+            input#city(type="text", class="form-control", name="city")
+        .form-group
+            label(for="date") Date
+            input#date(type="date", class="form-control", name="date", placeholder: "Date")
+        input(type="submit", class="btn btn-info")
+
+    script(type="text/javascript").
+        function teamaa() {
+            $('select[name="teama"]').change(function() {
+                var $this = $(this);
+                console.log($this.val());
+            });
+        };
+
+        function teambb() {
+        $('select[name="teamb"]').change(function() {
+            var $this = $(this);
+            console.log($this.val());
+        });
+        };
